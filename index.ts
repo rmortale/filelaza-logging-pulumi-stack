@@ -2,8 +2,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
 
-// Create an AWS resource (S3 Bucket)
-const bucket = new aws.s3.Bucket("my-bucket");
+let config = new pulumi.Config();
+let prefix = config.require("prefix");
 
-// Export the name of the bucket
-export const bucketName = bucket.id;
+const log = new aws.cloudwatch.LogGroup(`/aws/events/${prefix}-events-log`, {
+    retentionInDays: 7
+});
+
+
+
+
+export const logGroup = log.id;
