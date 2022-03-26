@@ -16,7 +16,7 @@ const s3objCreated = new aws.cloudwatch.EventRule(`${prefix}-s3ObjectCreated`, {
         "detail-type": ["Object Created"],
         "detail": {
             "bucket": {
-                "name": ["filelaza*"]
+                "name": [{"prefix": "filelaza"}]
             }
         }
     })
