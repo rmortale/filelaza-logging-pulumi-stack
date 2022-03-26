@@ -1,0 +1,3 @@
+name: filelaza-logging-pulumi-stack
+runtime: nodejs
+description: filelaza logging project
